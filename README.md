@@ -1,6 +1,6 @@
 # CDKTF Helpers
 
-Helpers for creating the stacks of `cdktf`, inspired by class component of `React.js`.
+Helpers for creating the stacks of `cdktf`, inspired by [the class component of `React.js`](https://react.dev/reference/react/Component#constructor).
 
 - [CDKTF Helpers](#cdktf-helpers)
   - [Installation](#installation)
