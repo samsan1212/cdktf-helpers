@@ -57,6 +57,8 @@ const app = new App();
 CdktfComponentFactory.createComponent(app, MainStack.name, {
   ami: "ami-01456a894f71116f2",
 });
+
+app.synth();
 ```
 
 ## Component
