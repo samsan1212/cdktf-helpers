@@ -1,15 +1,15 @@
 import { TerraformOutput } from "cdktf";
 
 import type { CdktfStackComponent } from "./StackComponent";
-import type { CdktfStackConstructor } from "./types";
+import type { CdktfStackConstructor, ICdktfStackComponent } from "./types";
 import type { Construct } from "constructs";
 
 export function createComponent<S extends CdktfStackComponent, P>(
   scope: Construct,
   Stack: CdktfStackConstructor<S>,
-  props?: P & { stackName: string }
+  props?: P & { stackName?: string }
 ) {
-  const stack = new Stack(scope, props?.stackName ?? Stack.name, props);
+  const stack: ICdktfStackComponent = new Stack(scope, props?.stackName ?? Stack.name, props);
 
   stack.beforeCreateResources?.();
 
@@ -20,7 +20,7 @@ export function createComponent<S extends CdktfStackComponent, P>(
   const outputs = stack.outputs;
   if (outputs.size > 0) {
     outputs.forEach((config, id) => {
-      new TerraformOutput(stack, id, config);
+      new TerraformOutput(stack as never, id, config);
     });
   }
 
@@ -30,9 +30,9 @@ export function createComponent<S extends CdktfStackComponent, P>(
 export async function createComponentAsync<S extends CdktfStackComponent, P>(
   scope: Construct,
   Stack: CdktfStackConstructor<S>,
-  props?: P & { stackName: string }
+  props?: P & { stackName?: string }
 ) {
-  const stack = new Stack(scope, props?.stackName ?? Stack.name, props);
+  const stack: ICdktfStackComponent = new Stack(scope, props?.stackName ?? Stack.name, props);
 
   await stack.beforeCreateResources?.();
 
@@ -43,7 +43,7 @@ export async function createComponentAsync<S extends CdktfStackComponent, P>(
   const outputs = stack.outputs;
   if (outputs.size > 0) {
     outputs.forEach((config, id) => {
-      new TerraformOutput(stack, id, config);
+      new TerraformOutput(stack as never, id, config);
     });
   }
 

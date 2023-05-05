@@ -6,7 +6,7 @@ import type { Construct } from "constructs";
 
 export abstract class CdktfStackComponent<Props = Record<string, any>, State = Record<string, any>>
   extends TerraformStack
-  implements ICdktfStackComponent
+  implements ICdktfStackComponent<Props, State>
 {
   readonly #props: Map<keyof Props, Props[keyof Props]>;
   readonly #state = new Map<keyof State, State[keyof State]>();
@@ -37,7 +37,5 @@ export abstract class CdktfStackComponent<Props = Record<string, any>, State = R
     this.#outputs.set(id, config);
   }
 
-  abstract beforeCreateResources?(): void | Promise<void>;
   abstract createResources(): void | Promise<void>;
-  abstract afterCreateResources?(): void | Promise<void>;
 }

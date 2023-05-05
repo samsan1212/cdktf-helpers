@@ -1,12 +1,21 @@
 {
   "name": "cdktf-helpers",
   "packageManager": "yarn@3.5.1",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "license": "MIT",
   "author": "Sam TS Chan <samchan148@gmail.com>",
   "main": "lib/index.js",
   "types": "lib/mod.d.ts",
   "module": "lib/mod.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/samsan1212/cdktf-helpers.git"
+  },
+  "keywords": [
+    "cdktf",
+    "terraform",
+    "constructs"
+  ],
   "scripts": {
     "postinstall": "husky install",
     "test": "echo \"No test, skipped\"",

@@ -36,9 +36,9 @@ const base = {
     }),
   ],
   external: [
-    ...Object.keys(packageJson.devDependencies ?? {}).map((item) => new RegExp(item)),
-    ...Object.keys(packageJson.dependencies ?? {}).map((item) => new RegExp(item)),
-    ...Object.keys(packageJson.peerDependencies ?? {}).map((item) => new RegExp(item)),
+    ...Object.keys(packageJson.devDependencies ?? {}),
+    ...Object.keys(packageJson.dependencies ?? {}),
+    ...Object.keys(packageJson.peerDependencies ?? {}),
   ],
 };
 
