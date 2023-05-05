@@ -3,6 +3,7 @@
 Helpers for creating the stacks of `cdktf`, inspired by class component of `React.js`.
 
 - [CDKTF Helpers](#cdktf-helpers)
+  - [Installation](#installation)
   - [Quick Start](#quick-start)
   - [Component](#component)
     - [Component API](#component-api)
@@ -14,6 +15,12 @@ Helpers for creating the stacks of `cdktf`, inspired by class component of `Reac
     - [`CdktfComponentFactory.createComponent`](#cdktfcomponentfactorycreatecomponent)
     - [`CdktfComponentFactory.createComponentAsync`](#cdktfcomponentfactorycreatecomponentasync)
     - [Component lifecycle](#component-lifecycle)
+
+## Installation
+
+```bash
+npm i cdktf-helpers
+```
 
 ## Quick Start
 
